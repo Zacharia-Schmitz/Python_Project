@@ -20,7 +20,7 @@
  **try-except statement**
  - used this for trying to convert a user input to a float if they type something else.
  - TRY to convert to a float
- - EXCEPT if it can't, do this. In my case I used return.
+ - EXCEPT if it can't, do this. In my case I printed an error and used return.
 
 
 
