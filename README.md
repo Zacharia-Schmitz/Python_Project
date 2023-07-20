@@ -9,7 +9,7 @@
 
 ---
 ## The Project:
-## Build a .py file that will be run from the command line.
+### Build a .py file that will be run from the command line.
 
 - When run, the application should welcome the user, and prompt them for an action to take:
     - view current balance
