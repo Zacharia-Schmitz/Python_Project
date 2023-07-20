@@ -6,6 +6,8 @@
 - timestamps on the ledger
 - option for transaction descriptions
 - an option to view previous transactions input by the user
+- transaction search
+- transactions by day
 
 ### Things learned:
 
