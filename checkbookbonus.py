@@ -1,5 +1,5 @@
 import os
-import datetime
+import datetime as dt
 
 def welcome():
     """
@@ -54,7 +54,7 @@ def add_debit():
         return
     description = input("Enter a description for the transaction (optional): ")
     # Get the current timestamp
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    timestamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     # Write the transaction to the ledger file
     with open("ledgerbonus.txt", "a") as f:
         f.write(f"{timestamp}, debit, ${amount:.2f}, Description: {description}\n")
@@ -73,7 +73,7 @@ def add_credit():
         return
     description = input("Enter a description for the transaction (optional): ")
     # Get the current timestamp
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    timestamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     # Write the transaction to the ledger file
     with open("ledgerbonus.txt", "a") as f:
         f.write(f"{timestamp}, credit, ${amount:.2f}, Description: {description}\n")
@@ -127,5 +127,7 @@ def main():
         else:
             print("Invalid input. Please enter a number between 1 and 5.")
 
+# If the module is being run as the main program (like from command line) then run main()
+# If not being run as main (like imported) then main won't be ran
 if __name__ == "__main__":
     main()

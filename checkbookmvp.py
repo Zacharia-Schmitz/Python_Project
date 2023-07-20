@@ -18,7 +18,7 @@ def get_balance():
     Reads the transactions from the ledger.txt file and calculates the current balance.
 
     Returns:
-    float: The current balance.
+    float: The current balance
     """
     balance = 0
     # Check if the ledger.txt file exists
