@@ -162,7 +162,7 @@ def main():
     """
     while True:
         welcome()
-        choice = input("Enter your choice (1-6): ")
+        choice = input("Enter your choice (1-7): ")
         if choice == "1":
             view_balance()
         elif choice == "2":
@@ -177,9 +177,9 @@ def main():
             view_day_transactions()
         elif choice == "7":
             print("Goodbye!")
-            break
+            exit()
         else:
-            print("Invalid input. Please enter a number between 1 and 6.")
+            print("Invalid input. Please enter a number between 1 and 7.")
 
 # If the module is being run as the main program (like from command line) then run main()
 # If not being run as main (like imported) then main won't be ran
