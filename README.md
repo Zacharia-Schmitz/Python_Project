@@ -2,7 +2,7 @@
 
 **checkbookmvp.py** is the minimum viable product. Once I had that I started working on the bonus.
 
-**checkbookbonus.py** has the following bonus features:
+**checkbookbonus.py** has everything mvp has and the following bonus features:
 - timestamps on the ledger
 - option for transaction descriptions
 - an option to view previous transactions input by the user
