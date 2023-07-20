@@ -1,15 +1,31 @@
 # Python Project
 
-**checkbookmvp.py** is the minimum viable product. Once we had that we started working on the bonus.
+**checkbookmvp.py** is the minimum viable product. Once I had that I started working on the bonus.
 
 **checkbookbonus.py** has the following bonus features:
 - timestamps on the ledger
 - option for transaction descriptions
 - an option to view previous transactions input by the user
 
+### Things learned:
+
+**os library (operating system)**
+ - operating system library, utilized for ease of access to file system
+ - specifically used os.path
+
+ **date time library**
+ - allowed for ease of manipulating date and time
+ - specifically used datetime.datetime.now().strftime to format the time as I wanted it.
+
+ **try-except statement**
+ - used this for trying to convert a user input to a float if they type something else.
+ - TRY to convert to a float
+ - EXCEPT if it can't, do this. In my case I used return.
+
+
+
 ---
-## The Project:
-### Build a .py file that will be run from the command line.
+## The Project: Build a .py file that will be run from the command line.
 
 - When run, the application should welcome the user, and prompt them for an action to take:
     - view current balance

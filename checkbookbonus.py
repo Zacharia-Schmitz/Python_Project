@@ -23,7 +23,9 @@ def get_balance():
     float: The current balance.
     """
     balance = 0
+    # Check if the ledger file exists
     if os.path.exists("ledgerbonus.txt"):
+        # Read each line of the file and update the balance accordingly
         with open("ledgerbonus.txt", "r") as f:
             for line in f:
                 transaction = line.strip().split(", ")
@@ -51,9 +53,10 @@ def add_debit():
         print("Invalid input. Please enter a number.")
         return
     description = input("Enter a description for the transaction (optional): ")
+    # Get the current timestamp
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # Write the transaction to the ledger file
     with open("ledgerbonus.txt", "a") as f:
-        # f.write(f"debit,{amount},'{description}',{timestamp}\n")
         f.write(f"{timestamp}, debit, ${amount:.2f}, Description: {description}\n")
     print(f"${amount:.2f} removed from your account.")
     print(f"Your new balance is: ${get_balance():.2f}")
@@ -69,9 +72,10 @@ def add_credit():
         print("Invalid input. Please enter a number.")
         return
     description = input("Enter a description for the transaction (optional): ")
+    # Get the current timestamp
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # Write the transaction to the ledger file
     with open("ledgerbonus.txt", "a") as f:
-        # f.write(f"credit,{amount},'{description}',{timestamp}\n")
         f.write(f"{timestamp}, credit, ${amount:.2f}, Description: {description}\n")
     print(f"${amount:.2f} added to your account.")
     print(f"Your new balance is: ${get_balance():.2f}")
@@ -87,14 +91,18 @@ def view_transactions():
         print("Invalid input. Please enter a number.")
         return
     transactions = []
+    # Check if the ledger file exists
     if os.path.exists("ledgerbonus.txt"):
+        # Read each line of the file and append it to the transactions list
         with open("ledgerbonus.txt", "r") as f:
             for line in f:
                 transactions.append(line.strip())
+    # If the number of transactions requested is greater than the number of transactions in the file, adjust the number of transactions to display
     if n > len(transactions):
         n = len(transactions)
         print(f"You only have {n} transactions.")
     print(f"Here are your last {n} transactions:")
+    # Print the last n transactions
     for transaction in transactions[-n:]:
         print(transaction)
 
