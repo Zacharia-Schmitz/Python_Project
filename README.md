@@ -1,4 +1,4 @@
-# Python_Project
+# Python Project
 
 **checkbookmvp.py** is the minimum viable product. Once we had that we started working on the bonus.
 
