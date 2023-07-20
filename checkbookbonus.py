@@ -13,7 +13,8 @@ def welcome():
     print("2. Withdraw cash (Debit)")
     print("3. Deposit cash (Credit)")
     print("4. View transactions")
-    print("5. Exit")
+    print("5. Search for a transaction")
+    print("6. Exit")
 
 def get_balance():
     """
@@ -106,13 +107,33 @@ def view_transactions():
     for transaction in transactions[-n:]:
         print(transaction)
 
+def search_transaction():
+    """
+    Prompts the user to enter a search term and prints any transactions that match the search term (case-insensitive).
+    """
+    search_term = input("Enter a search term: ")
+    transactions = []
+    # Check if the ledger file exists
+    if os.path.exists("ledgerbonus.txt"):
+        # Read each line of the file and append it to the transactions list if it contains the search term (case-insensitive)
+        with open("ledgerbonus.txt", "r") as f:
+            for line in f:
+                if search_term.lower() in line.lower():
+                    transactions.append(line.strip())
+    if transactions:
+        print(f"Here are the transactions that match '{search_term}':")
+        for transaction in transactions:
+            print(transaction)
+    else:
+        print(f"No transactions found that match '{search_term}'.")
+
 def main():
     """
     The main function that runs the checkbook program.
     """
     while True:
         welcome()
-        choice = input("Enter your choice (1-5): ")
+        choice = input("Enter your choice (1-6): ")
         if choice == "1":
             view_balance()
         elif choice == "2":
@@ -122,10 +143,12 @@ def main():
         elif choice == "4":
             view_transactions()
         elif choice == "5":
+            search_transaction()
+        elif choice == "6":
             print("Goodbye!")
             break
         else:
-            print("Invalid input. Please enter a number between 1 and 5.")
+            print("Invalid input. Please enter a number between 1 and 6.")
 
 # If the module is being run as the main program (like from command line) then run main()
 # If not being run as main (like imported) then main won't be ran
