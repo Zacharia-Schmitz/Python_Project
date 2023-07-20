@@ -12,9 +12,10 @@ def welcome():
     print("1. View balance")
     print("2. Withdraw cash (Debit)")
     print("3. Deposit cash (Credit)")
-    print("4. View transactions")
+    print("4. View previous transactions")
     print("5. Search for a transaction")
-    print("6. Exit")
+    print("6. View transactions by day")
+    print("7. Exit")
 
 def get_balance():
     """
@@ -126,6 +127,34 @@ def search_transaction():
             print(transaction)
     else:
         print(f"No transactions found that match '{search_term}'.")
+        
+def view_day_transactions():
+    """
+    Prints the transactions for a given day to the console.
+    """
+    date_str = input("Enter a date (MM DD YY): ")
+    try:
+        date = dt.datetime.strptime(date_str, "%m %d %y")
+    except ValueError:
+        print("Invalid input. Please enter a date in the format 'MM DD YY'.")
+        return
+    transactions = []
+    # Check if the ledger file exists
+    if os.path.exists("ledgerbonus.txt"):
+        # Read each line of the file and append it to the transactions list if it matches the date
+        with open("ledgerbonus.txt", "r") as f:
+            for line in f:
+                transaction_date_str = line.strip().split(", ")[0]
+                transaction_date = dt.datetime.strptime(transaction_date_str, "%Y-%m-%d %H:%M:%S")
+                if transaction_date.date() == date.date():
+                    transactions.append(line.strip())
+    if transactions:
+        print(f"Here are your transactions for {date.strftime('%m/%d/%y')}:")
+        for transaction in transactions:
+            print(transaction)
+    else:
+        print(f"No transactions found for {date.strftime('%m/%d/%y')}.")
+
 
 def main():
     """
@@ -145,6 +174,8 @@ def main():
         elif choice == "5":
             search_transaction()
         elif choice == "6":
+            view_day_transactions()
+        elif choice == "7":
             print("Goodbye!")
             break
         else:
