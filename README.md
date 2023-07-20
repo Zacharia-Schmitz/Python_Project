@@ -8,7 +8,7 @@
 - an option to view previous transactions input by the user
 
 ---
-
+## The Project:
 ## Build a .py file that will be run from the command line.
 
 - When run, the application should welcome the user, and prompt them for an action to take:
