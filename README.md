@@ -1,6 +1,15 @@
 # Python_Project
 
-### Build a .py file that will be run from the command line.
+**checkbookmvp.py** is the minimum viable product. Once we had that we started working on the bonus.
+
+**checkbookbonus.py** has the following bonus features:
+- timestamps on the ledger
+- option for transaction descriptions
+- an option to view previous transactions input by the user
+
+---
+
+## Build a .py file that will be run from the command line.
 
 - When run, the application should welcome the user, and prompt them for an action to take:
     - view current balance
@@ -14,7 +23,7 @@
 
 ---
 
-## Bonus Features:
+### Bonus Features:
 
 - Add a menu item that allows the user to view all historical transactions
 - Assign categories to each transaction
